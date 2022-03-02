@@ -1,12 +1,13 @@
-let ninjas = ['shaun', 'ryu', 'chun-li'];
+//for loops
 
-// ninjas[1] = 'ken'
-// console.log(ninjas);
+// for(let i =0; i <5; i++){
+//    console.log('in loop:', i)
+// }
 
-// let ages = [20,25,30,35];
+// console.log('loop finished');
 
-// console.log(ages[2]);
+const names = ['shaun', 'mario', 'luigi'];
 
-let result = ninjas
-
-console.log(result)
+for(let i =0; i < names.length; i++){
+    
+}
