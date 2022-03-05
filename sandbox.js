@@ -1,11 +1,6 @@
-function greet(){
-    console.log('hello there');
-}
 
-const speak = function(){
-
+const speak = function(name){
+    console.log(`hello ${name}`)
 };
 
-greet();
-greet();
-greet();
+speak('kevin');
