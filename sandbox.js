@@ -1,20 +1,13 @@
+const ul = document.querySelector('.people');
 
-// const speak = function(name, last){
-//     console.log(`hello ${name} ${last}`)
-// };
-
-// speak('kevin', 'castillo');
-
-// function calcArea(radius){
-//     return 3.14 * radius**2;
-    
-// }
-
-const calcArea = (radius) => {
-    return 3.14 * radius**2
-};
+const people = ['mario', 'kevin', 'boo', 'daisy', 'penny'];
 
 
+let html = ``;
 
-const area = calcArea(5);
-console.log('area is:', area)
+people.forEach(person => {
+    html += `<li style="color: purple">${person}</li>`
+})
+
+console.log(html)
+ul.innerHTML = html;
