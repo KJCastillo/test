@@ -1,13 +1,10 @@
-const ul = document.querySelector('.people');
+//object literal
 
-const people = ['mario', 'kevin', 'boo', 'daisy', 'penny'];
+let user = {
+    name: 'kevin',
+    age: 31,
+    email: 'kjc@gmail.com',
+    location: 'san diego',
+    blogs: ['coding', 'bjj']
+};
 
-
-let html = ``;
-
-people.forEach(person => {
-    html += `<li style="color: purple">${person}</li>`
-})
-
-console.log(html)
-ul.innerHTML = html;
