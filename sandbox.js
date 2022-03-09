@@ -1,53 +1,18 @@
-//object literal
+// let scoreOne = 50;
+// let scoreTwo = scoreOne;
 
-// const blogs = [
-//     {title: 'coding', likes: 3},
-//     {titile: 'bjj', likes: 18}
-// ];
+// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`);
 
-// console.log(blogs)
+// scoreOne = 100;
 
-// let user = {
-//     name: 'kevin',
-//     age: 31,
-//     email: 'kjc@gmail.com',
-//     location: 'san diego',
-//     blogs: [
-//         {title: 'coding', likes: 3},
-//         {title: 'bjj', likes: 18}
-//     ],
-//     login: function(){
-//         console.log('user logged in');
-//     },
-//     logout: function(){
-//         console.log('user logged out');
-//     },
-//     logBlogs(){
-//         console.log('user has written the following blogs');
-//         this.blogs.forEach(blog => {
-//             console.log(blog.title, blog.likes)
-//         })
-//     }
-// };
+// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`);
 
-// user.login();
-// user.logout();
-// user.logBlogs();
+const userOne = {name: 'ryu', age: 30};
 
-//Math Object
+const userTwo = userOne;
 
-console.log(Math);
-console.log(Math.PI);
-console.log(Math.E);
+console.log(userOne, userTwo);
 
-const area = 7.5;
+userOne.age = 40;
 
-console.log(Math.round(area));
-console.log(Math.floor(area));
-console.log(Math.ceil(area));
-console.log(Math.trunc(area));
-
-const random = Math.random();
-
-console.log(random);
-console.log(Math.round(random * 100));
+console.log(userOne, userTwo);
