@@ -1,23 +1,16 @@
-const ul = document.querySelector('ul');
 const button = document.querySelector('button');
+const popup = document.querySelector('.popup-wrapper');
+const close = document.querySelector('.popup-close');
+
 
 button.addEventListener('click', () => {
-    const li = document.createElement('li');
-    li.textContent = 'something new to do';
-    ul.append(li);
+    popup.style.display = 'block';
 });
 
-const items = document.querySelectorAll('li');
+close.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
 
-// items.forEach(i => {
-//     i.addEventListener('click', e => {
-//         e.stopPropagation();
-//         e.target.remove();
-//     });
-// });
-
-ul.addEventListener('click', e => {
-    if(e.target.tagName === 'LI'){
-        e.target.remove();
-    }
+popup.addEventListener('click', () => {
+    popup.style.display = 'none';
 });
