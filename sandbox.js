@@ -1,16 +1,10 @@
-const button = document.querySelector('button');
-const popup = document.querySelector('.popup-wrapper');
-const close = document.querySelector('.popup-close');
+const form = document.querySelector('.signup-form');
+//const username = document.querySelector('#username');
 
-
-button.addEventListener('click', () => {
-    popup.style.display = 'block';
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    const username = form.username.value;
+    const usernamePattern = /^[a-zA-z]{6,12}$/;
+    
 });
 
-close.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
-
-popup.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
