@@ -20,6 +20,12 @@
         margin: 10px auto;
         padding: 4px;
       }
+      .success{
+        border: 2px solid limegreen;
+      }
+      .error{
+        border: 2px solid tomato;
+      }
     </style>
   </head>
   <body>
@@ -30,6 +36,7 @@
    <form class="signup-form">
      <input type="text" id="username" placeholder="username">
      <input type="submit" value="submit">
+     <div class="feedback"></div>
    </form>
 
     <script src="sandbox.js"></script>
