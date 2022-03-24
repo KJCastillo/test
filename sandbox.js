@@ -1,19 +1,14 @@
-const prices = [20, 10, 30, 25, 15, 40, 80, 5];
-
-const products = [
-    {name: 'gold star', price: 20},
-    {name: 'mushroom', price: 40},
-    {name: 'green shell', price: 30},
-    {name: 'banana skin', price: 10},
-    {name: 'red shell', price: 50}
+const scores = [
+    {player: 'kevin', score: 50},
+    {player: 'penny', score: 30},
+    {player: 'kevin', score: 70},
+    {player: 'johnny', score: 60}
 ];
 
-let x = products.map((product) => {
-    if(product.price > 30){
-        return {name: product.name, price: product.price / 2}
-    } else {
-        return product
-    }
-});
+const x = scores.reduce((acc, curr) => {
+    if(curr.player === 'kevin'){
+        acc += curr.score
+    } return acc
+},0);
 
 console.log(x);
