@@ -1,31 +1,23 @@
-// const scores = [10, 5, 0, 40, 60, 10, 20, 70];
-
-// scores.sort();
-// console.log(scores);
-
-// const names = ['kevin', 'penny', 'daisy', 'bjj'];
-
-// names.sort();
-// console.log(names);
-
-const players = [
-    {name: 'kevin', score: 20},
-    {name: 'penny', score: 10},
-    {name: 'daisy', score: 50}
+const products = [
+    {name: 'gold star', price: 30},
+    {name: 'green shell', price: 10},
+    {name: 'red shell', price: 40},
+    {name: 'banana skin', price: 5},
+    {name: 'mushroom', price: 50}
 ];
 
-// players.sort((a,b) => {
-//     if(a.score > b.score){
-//         return -1
-//     } else if (a.score < b.score){
-//         return 1
-//     } else {
-//         return 0
-//     }
+// const filtered = products.filter((product) => {
+//     return product.price > 20
+// })
+
+// const promos = filtered.map((product) => {
+//     return `the ${product.name} is ${product.price / 2} dollars`
 // });
 
-players.sort((a,b) => {
-    return a.score - b.score
-});
+const promos = products
+    .filter(product => product.price > 20)
+    .map((product) => {
+        return `the ${product.name} is ${product.price / 2} dollars`
+})
 
-console.log(players)
+console.log(promos);
