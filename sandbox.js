@@ -1,23 +1,8 @@
-const products = [
-    {name: 'gold star', price: 30},
-    {name: 'green shell', price: 10},
-    {name: 'red shell', price: 40},
-    {name: 'banana skin', price: 5},
-    {name: 'mushroom', price: 50}
-];
+const now = new Date();
 
-// const filtered = products.filter((product) => {
-//     return product.price > 20
-// })
+console.log(now);
 
-// const promos = filtered.map((product) => {
-//     return `the ${product.name} is ${product.price / 2} dollars`
-// });
-
-const promos = products
-    .filter(product => product.price > 20)
-    .map((product) => {
-        return `the ${product.name} is ${product.price / 2} dollars`
-})
-
-console.log(promos);
+console.log('getFullYear', now.getFullYear());
+console.log('getMonth', now.getMonth());
+console.log('getDate', now.getDate());
+console.log('getDay', now.getDay());
