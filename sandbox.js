@@ -1,12 +1,9 @@
-const now = new Date();
+console.log(1);
+console.log(2);
 
-console.log(dateFns.isToday(now));
+setTimeout(() => {
+    console.log('callback')
+}, 2000);
 
-console.log(dateFns.format(now, "YYYY"));
-console.log(dateFns.format(now, "MMM"));
-console.log(dateFns.format(now, "Do"));
-console.log(dateFns.format(now, "dddd, MMMM Do YYYY"));
-
-const before = new Date('March 18 2022 12:00:00');
-
-console.log(dateFns.distanceInWords(now, before, {addSuffix: true}));
+console.log(3);
+console.log(4);
