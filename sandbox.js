@@ -1,20 +1,12 @@
-const clock = document.querySelector('.clock');
+const now = new Date();
 
-const tick = () => {
+console.log(dateFns.isToday(now));
 
-    const now = new Date();
+console.log(dateFns.format(now, "YYYY"));
+console.log(dateFns.format(now, "MMM"));
+console.log(dateFns.format(now, "Do"));
+console.log(dateFns.format(now, "dddd, MMMM Do YYYY"));
 
-    const h = now.getHours();
-    const m = now.getMinutes();
-    const s = now.getSeconds();
+const before = new Date('March 18 2022 12:00:00');
 
-    const html = `
-        <span>${h}</span> : 
-        <span>${m}</span> : 
-        <span>${s}</span>
-    `;
-
-    clock.innerHTML = html
-};
-
-setInterval(tick, 1000);
+console.log(dateFns.distanceInWords(now, before, {addSuffix: true}));
