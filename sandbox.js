@@ -1,3 +1,8 @@
+
+
+
+
+
 //fetch api
 
 // fetch('todos.json').then((response) => {
@@ -8,10 +13,10 @@
 //     console.log('rejected', err);
 // });
 
-const getTodos = async () => {
-    const response = await fetch("todos.json");
-    const data = await response.json();
-    return data;
-};
+// const getTodos = async () => {
+//     const response = await fetch("todos.json");
+//     const data = await response.json();
+//     return data;
+// };
 
-getTodos();
+// getTodos();
