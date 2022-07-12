@@ -1,1 +1,1 @@
-repository made for testing codes and snippit's
+repository made for testing codes and snippit
