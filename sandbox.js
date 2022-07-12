@@ -1,17 +1,9 @@
-//fetch api
+//store local storage
+localStorage.setItem('name', 'Kevin');
+localStorage.setItem('age', 32);
 
-// fetch('todos.json').then((response) => {
-//     return response.json();
-// }).then(data => {
-//     console.log(data)
-// }).catch((err) => {
-//     console.log('rejected', err);
-// });
+//get data from local storage
+let name = localStorage.getItem('name')
+let age = localStorage.getItem('age')
 
-const getTodos = async () => {
-    const response = await fetch("todos.json");
-    const data = await response.json();
-    return data;
-};
-
-getTodos();
+console.log(`${name} is ${age} years old and will be a developer in 2022`)
