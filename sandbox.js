@@ -2,6 +2,7 @@
 const list = document.querySelector("ul");
 const form = document.querySelector("form");
 
+//add to UI
 const addRecipe = (recipe, id) => {
   let time = recipe.created_at.toDate();
   let html = `
@@ -14,17 +15,28 @@ const addRecipe = (recipe, id) => {
   list.innerHTML += html;
 };
 
-//get documents
-db.collection("recipes")
-  .get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      addRecipe(doc.data(), doc.id);
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+//deletes from UI
+const deleteRecipe = (id) => {
+    const recipes = document.querySelectorAll('li');
+    recipes.forEach(recipe => {
+        if(recipe.getAttribute('data-id') === id){
+            recipe.remove();
+        }
+    })
+}
+
+//get documents w/ snapshot
+db.collection('recipes').onSnapshot(snapshot => {
+    snapshot.docChanges().forEach(change => {
+        const doc = change.doc;
+        if(change.type === 'added'){
+            addRecipe(doc.data(), doc.id)
+        } else if(change.type === 'removed'){
+            deleteRecipe(doc.id)
+        }
+    })
+});
+//snapshot retrieves on every change
 
 //add documents
 form.addEventListener("submit", (e) => {
@@ -46,7 +58,7 @@ form.addEventListener("submit", (e) => {
     });
 });
 
-//delete data
+//delete data from db
 list.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     const id = e.target.parentElement.getAttribute("data-id");
