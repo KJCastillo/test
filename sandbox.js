@@ -1,6 +1,7 @@
 //noSQL database
 const list = document.querySelector("ul");
 const form = document.querySelector("form");
+const button = document.querySelector("button");
 
 //add to UI
 const addRecipe = (recipe, id) => {
@@ -17,24 +18,24 @@ const addRecipe = (recipe, id) => {
 
 //deletes from UI
 const deleteRecipe = (id) => {
-    const recipes = document.querySelectorAll('li');
-    recipes.forEach(recipe => {
-        if(recipe.getAttribute('data-id') === id){
-            recipe.remove();
-        }
-    })
-}
+  const recipes = document.querySelectorAll("li");
+  recipes.forEach((recipe) => {
+    if (recipe.getAttribute("data-id") === id) {
+      recipe.remove();
+    }
+  });
+};
 
 //get documents w/ snapshot
-db.collection('recipes').onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(change => {
-        const doc = change.doc;
-        if(change.type === 'added'){
-            addRecipe(doc.data(), doc.id)
-        } else if(change.type === 'removed'){
-            deleteRecipe(doc.id)
-        }
-    })
+const unsub = db.collection("recipes").onSnapshot((snapshot) => {
+  snapshot.docChanges().forEach((change) => {
+    const doc = change.doc;
+    if (change.type === "added") {
+      addRecipe(doc.data(), doc.id);
+    } else if (change.type === "removed") {
+      deleteRecipe(doc.id);
+    }
+  });
 });
 //snapshot retrieves on every change
 
@@ -62,14 +63,22 @@ form.addEventListener("submit", (e) => {
 list.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     const id = e.target.parentElement.getAttribute("data-id");
-    db.collection('recipes').doc(id).delete()
-    .then(() => {
-        console.log('recipe deleted')
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+    db.collection("recipes")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("recipe deleted");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     //looks into db for 'recipes' colletion and .doc looks into each document
     //for that specific id and then deletes
   }
 });
+
+//unsub from db live changes
+button.addEventListener('click', () => {
+    unsub();
+    console.log('unsubscriped from collection changes')
+})
