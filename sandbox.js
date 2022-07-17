@@ -50,10 +50,14 @@ form.addEventListener("submit", (e) => {
 list.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     const id = e.target.parentElement.getAttribute("data-id");
-    db.collection('recipes').doc(id).delete().then(() => {
+    db.collection('recipes').doc(id).delete()
+    .then(() => {
         console.log('recipe deleted')
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+    })
     //looks into db for 'recipes' colletion and .doc looks into each document
-    //for that specific id
+    //for that specific id and then deletes
   }
 });
