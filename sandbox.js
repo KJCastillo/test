@@ -1,84 +1,19 @@
-//noSQL database
-const list = document.querySelector("ul");
-const form = document.querySelector("form");
-const button = document.querySelector("button");
+//rest
+const double = (...nums) => {
+  console.log(nums);
+  return nums.map(num => num*2)
+}
 
-//add to UI
-const addRecipe = (recipe, id) => {
-  let time = recipe.created_at.toDate();
-  let html = `
-    <li data-id="${id}">
-        <div>${recipe.title}</div>
-        <div>${time}</div>
-        <button class="btn btn-danger btn-sm my-2">delete</button>
-    </li>
-    `;
-  list.innerHTML += html;
-};
+const result = double(1,3,5,7,9,2,4,6,8)
 
-//deletes from UI
-const deleteRecipe = (id) => {
-  const recipes = document.querySelectorAll("li");
-  recipes.forEach((recipe) => {
-    if (recipe.getAttribute("data-id") === id) {
-      recipe.remove();
-    }
-  });
-};
+console.log(result)
 
-//get documents w/ snapshot
-const unsub = db.collection("recipes").onSnapshot((snapshot) => {
-  snapshot.docChanges().forEach((change) => {
-    const doc = change.doc;
-    if (change.type === "added") {
-      addRecipe(doc.data(), doc.id);
-    } else if (change.type === "removed") {
-      deleteRecipe(doc.id);
-    }
-  });
-});
-//snapshot retrieves on every change
+//spread syntax (arrays)
+const people = ['kevin', 'penny', 'daisy']
+const members = ['mario', 'jose', ...people]
+console.log(members)
 
-//add documents
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const now = new Date();
-  const recipe = {
-    title: form.recipe.value,
-    created_at: firebase.firestore.Timestamp.fromDate(now),
-  };
-
-  db.collection("recipes")
-    .add(recipe)
-    .then(() => {
-      console.log("recipe added");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-//delete data from db
-list.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
-    const id = e.target.parentElement.getAttribute("data-id");
-    db.collection("recipes")
-      .doc(id)
-      .delete()
-      .then(() => {
-        console.log("recipe deleted");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    //looks into db for 'recipes' colletion and .doc looks into each document
-    //for that specific id and then deletes
-  }
-});
-
-//unsub from db live changes
-button.addEventListener('click', () => {
-    unsub();
-    console.log('unsubscriped from collection changes')
-})
+//spread syntax (objects)
+const person = {name: 'kevin', age: 32, job: 'developer'}
+const personClone = {...person, location: 'san diego'}
+console.log(personClone)
