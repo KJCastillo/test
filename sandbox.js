@@ -4,3 +4,4 @@
 
 //create preset-env by typing npm install @babel/preset-env --save-dev
 //then crate .babelrc file and set presets - 'preset-env
+
