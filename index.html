@@ -13,30 +13,48 @@
     <title>Test Doc</title>
   </head>
   <body class="bg-info">
-    <h1>Chicken</h1>
-    <div>
-      <p>testing emmit tag div>p> </p>
-    </div>
-    <p>
-      Lorem, <b>ipsum</b> dolor sit amet consectetur adipisicing elit.
-      Asperiores soluta accusantium id neque. Ex, sit! Vero fuga tempore a
-      doloribus neque inventore, vel magni, sit, voluptatibus quasi sed eaque
-      dolor.
-    </p>
-    <h2>Terminology</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
-      aspernatur voluptates nostrum error dolorum temporibus rem. Quo quisquam
-      accusantium impedit sint beatae necessitatibus aliquam alias velit, iste
-      saepe illum cum?
-    </p>
-    <h3>Behavior</h3>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam magnam
-      excepturi veniam at assumenda inventore totam id perspiciatis neque
-      doloribus error dicta voluptatem atque corrupti, rem, dolorum impedit
-      voluptatibus. Ex!
-    </p>
+    <h1>Race Registration!</h1>
+    <form>
+      <div>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" required />
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" required />
+      </div>
+      <div>
+        <p>Select a Race:</p>
+      </div>
+      <div>
+        <input id="fun" type="radio" name="a" />
+        <label for="fun">Fun Run 5k</label>
+      </div>
+      <div>
+        <input id="half" type="radio" name="a" />
+        <label for="fun">Half Marathon</label>
+      </div>
+      <div>
+        <input id="full" type="radio" name="a" />
+        <label for="fun">Full Marathon</label>
+      </div>
+      <div>
+        <label for="Email">Email</label>
+        <input type="email" id="email" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+      </div>
+      <div>
+        <label for="cars">Select Age Group:</label>
+        <select name="age" id="age-group">
+          <option value="kid">kid</option>
+          <option value="teen">teeb</option>
+          <option value="adult">adult</option>
+          <option value="master">master</option>
+        </select>
+      </div>
+      <div>
+        <button>Register!</button>
+      </div>
+    </form>
     <script src="sandbox.js"></script>
   </body>
 </html>
